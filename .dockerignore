@@ -1,0 +1,6 @@
+.git
+static_frontend
+frontend
+node_modules
+.gitignore
+*.md

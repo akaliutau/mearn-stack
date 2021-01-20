@@ -1,0 +1,89 @@
+1) POST /api/auth/signup - used to create a new user
+
+POST /api/auth/signup HTTP/1.1
+> Host: localhost:9000
+> Content-Type: application/json
+> Accept: */*
+> Content-Length: 97
+
+{
+	"username": "tester1",
+	"password": "12345",
+	"roles": ["admin"],
+	"email": "test1@corp.com"
+}
+
+< HTTP/1.1 200 OK
+< X-Powered-By: Express
+< Access-Control-Allow-Origin: http://localhost:8082
+< Vary: Origin
+< Access-Control-Allow-Headers: access-token, Origin, Content-Type, Accept
+< Content-Type: application/json; charset=utf-8
+< Content-Length: 46
+< Date: Tue, 19 Jan 2021 13:44:34 GMT
+< Connection: keep-alive
+< Keep-Alive: timeout=5
+
+
+2) POST /api/auth/signin - used for signing in as a user
+
+ POST /api/auth/signin HTTP/1.1
+> Host: localhost:9000
+> User-Agent: insomnia/2020.2.1
+> Cookie: JSESSIONID=761933FD6BFB4214646982974DAFD7DC
+> Content-Type: application/json
+> Accept: */*
+> Content-Length: 50
+
+{
+	"username": "tester1",
+	"password": "12345"
+}
+
+
+< HTTP/1.1 200 OK
+< X-Powered-By: Express
+< Access-Control-Allow-Origin: http://localhost:8082
+< Vary: Origin
+< Access-Control-Allow-Headers: access-token, Origin, Content-Type, Accept
+< Content-Type: application/json; charset=utf-8
+< Content-Length: 290
+< ETag: W/"122-mIdNOys9PSyfztErzmyZwHrwGq4"
+< Date: Tue, 19 Jan 2021 14:12:01 GMT
+< Connection: keep-alive
+< Keep-Alive: timeout=5
+
+{
+  "id": "6006e242d9d16308db3ca03a",
+  "username": "tester1",
+  "email": "test1@corp.com",
+  "roles": [
+    "ROLE_ADMIN"
+  ],
+  "accessToken": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYwMDZlMjQyZDlkMTYzMDhkYjNjYTAzYSIsImlhdCI6MTYxMTA2NTUyMSwiZXhwIjoxNjExMTUxOTIxfQ.rR-Rfsk6Wvbu5kooiGS8y0vce_Ooz0eL57lkCowYfX0"
+}
+
+3) GET /api/users - used to get details about specific user (dummpy page in current implementation)
+
+> GET /api/users HTTP/1.1
+> Host: localhost:9000
+> User-Agent: insomnia/2020.2.1
+> Cookie: JSESSIONID=761933FD6BFB4214646982974DAFD7DC
+> access-token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYwMDZlMjQyZDlkMTYzMDhkYjNjYTAzYSIsImlhdCI6MTYxMTA2Mzg5OSwiZXhwIjoxNjExMTUwMjk5fQ.Qr7tZLZTCVr3hTPP2-ebU8wqw4eptgi-I3ZSobiKOK8
+> Accept: */*
+
+
+< HTTP/1.1 200 OK
+< X-Powered-By: Express
+< Access-Control-Allow-Origin: http://localhost:8082
+< Vary: Origin
+< Access-Control-Allow-Headers: access-token, Origin, Content-Type, Accept
+< Content-Type: text/html; charset=utf-8
+< Content-Length: 12
+< ETag: W/"c-yRpch46mtYYwEgQ/a7a0Cn5m8LQ"
+< Date: Tue, 19 Jan 2021 13:57:06 GMT
+< Connection: keep-alive
+< Keep-Alive: timeout=5
+
+user details
+

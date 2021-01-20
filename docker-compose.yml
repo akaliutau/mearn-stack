@@ -1,0 +1,35 @@
+version: '3.7'
+
+services:
+  mongodb:
+    image: mongo:4.4.3
+    container_name: mongodb
+    restart: always
+    environment:
+        MONGO_INITDB_ROOT_USERNAME: dbadmin
+        MONGO_INITDB_ROOT_PASSWORD: dbadmin
+        MONGO_INITDB_DATABASE: database1
+    ports:
+        - 27017:27017
+    volumes:
+        - ./mongo-init.js:/docker-entrypoint-initdb.d/mongo-init.js:ro
+
+  server:
+    build: .
+    image: mean_backend
+    ports:
+      - '9000:9000'
+    links:
+      - mongodb
+
+  static_client:
+    build: static_frontend
+    image: s_frontend
+    ports:
+      - '8083:80'
+
+  dynamic_client:
+    build: frontend
+    image: d_frontend
+    ports:
+      - '8082:80'
