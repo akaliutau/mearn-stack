@@ -2,7 +2,7 @@
 About 
 =======
 
-A full-featured application covering different aspects of building backend + frontend on the basis of MEARN stack (MongoDB, Express, Angular, React, Node.js).
+A full-featured application covering different aspects of building backend + frontend on the basis of MEA(R)N stack (MongoDB, Express, Angular, React, Node.js).
 
 Overview
 ==========
@@ -49,5 +49,5 @@ Navigate browser to localhost:8082, create a new user and login.
 NOTES
 ======
 
-The file tsconfig.json has been added for dockerized building only (without it build directory is created in another place)
+The file frontend/tsconfig.json has been added for dockerized building only (without it build directory is created in another place)
 
